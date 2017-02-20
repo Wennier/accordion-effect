@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .bg{
+            width:100%;
+            height:100%;
+            position:fixed;
+        }
+        .bg ul{
+            height:100%;
+        }
+        .bg ul li{
+            width:100%;
+            height:100%;
+            position: absolute;
+            display: none;
+            list-style: none;
+        }
+        .bg ul li:nth-child(1){
+            background:url('img/1.jpg') no-repeat;
+            background-size: cover;
+            display: block;
+        }
+        .bg ul li:nth-child(2){
+            background:url('img/2.jpg') no-repeat;
+            background-size: cover;
+        }
+        .bg ul li:nth-child(3){
+            background:url('img/3.jpg') no-repeat;
+            background-size: cover;
+        }
+        .bg ul li:nth-child(4){
+            background:url('img/4.jpg') no-repeat;
+            background-size: cover;
+        }
+        .box{
+            width:1090px;
+            height:430px;
+            position: fixed;
+            top:0;bottom: 0;
+            left:0;
+            right:0;
+            margin:auto;
+            overflow: hidden;
+        }
+        .box li{
+            width:789px;
+            height:430px;
+            list-style: none;
+            position: absolute;
+            top:0px;
+
+        }
+        .box ul li:nth-child(1){
+            left:0;
+        }
+        .box ul li:nth-child(2){
+            left:789px;
+        }
+        .box ul li:nth-child(3){
+            left: 889px;
+        }
+        .box ul li:nth-child(4){
+            left:989px;
+        }
+        .box ul li p{
+            position: absolute;
+            top:0;
+            left:0;
+            width:14px;
+            height:100%;
+            background: rgba(0,0,0,0.5);
+            padding:43px;
+            color: #fff;
+            line-height: 26px;
+        }
+
+    </style>
+</head>
+
+
+<body>
+<div class = 'bg'>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<div class="box">
+    <ul>
+        <li>
+            <p>我的个人拉萨之旅—故事之城</p>
+            <img src="img/1.jpg"/>
+        </li>
+        <li>
+            <p>我的个人拉萨之旅—故事之城</p>
+            <img src="img/2.jpg"/>
+        </li>
+        <li>
+            <p>我的个人拉萨之旅—故事之城</p>
+            <img src="img/3.jpg"/>
+        </li>
+        <li>
+            <p>我的个人拉萨之旅—故事之城</p>
+            <img src="img/4.jpg"/>
+        </li>
+    </ul>
+</div>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script>
+    $('.box ul li').hover(function(){
+        var _index = $(this).index();
+        for(var i = 0;i<4;i++){
+            if(i<=_index){
+                $('.box ul li').eq(i).stop().animate({left:i*100+'px'},400)
+
+            }else{
+                $('.box ul li').eq(i).stop().animate({ left:i*100+689+'px'},400)
+            }
+            }
+            $('.bg ul li').eq(_index).fadeIn().siblings().fadeOut();
+        })
+</script>
+
+</body>
+</html>
