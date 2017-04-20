@@ -12,7 +12,7 @@
 		height: 100%;
 	}
 	#logo {
-		border-bottom:4px solid #FDA621 ;
+		border-bottom:4px solid #BDBDBD;
 		height: 80px;
 		width: 100%; 
 		position: relative;
@@ -26,8 +26,8 @@
 		text-align: center;
 		font-size: 18px;
 		font-weight: 400;
-		color: #FDA621;
-		border:2px solid  #FDA621;
+		color:#5C3915;
+		border:2px solid  #5C3915;
 		border-radius: 10px;
 		position: absolute;
 		top: 10px;right: 80px;
@@ -91,34 +91,35 @@
 	#warpper .box .box_content .form-group label font{
 		color:#FD8321;margin-right: 10px;
 	}
-	#warpper .box .box_content .registe{
+
+
+	#warpper .box .box_content #registe{
 		width: 438px;
-		background: #FD8321;
 		margin:30px auto; 
-		border:1px solid #FD8321;
 		border-radius: 2px;
 		position: absolute;
 		bottom: 30px;
 		left: 30px;
 
 	}
-
-	#warpper .box .box_content .registe a{
+	#warpper .box .box_content #registe .login{
 		line-height: 60px;
 		text-decoration: none;
 		color: #fff;
 		text-align: center;
-		margin:0 180px; 
 		font-size: 24px;
 		font-family: "微软雅黑";
-		
-
+		border:none; 
+		background: rgba(0,0,0,0);
+		outline: none;
+		background: #A9825A;
+		width: 440px;
 	}
 	</style>
 </head>
 <body>
 <div id="logo">
-	<div><span><img src="img/logo.png"></span></div>
+	<div><span><img src="img/logo-1.png"></span></div>
 	<div class="return_log"><a href="">返回首页</a></div>
 </div>
 <div id="warpper">
@@ -127,24 +128,18 @@
 		<div class="box_content">
 			<h2>管理员登录</h2>
 			<div>
-				<div class="information infor1">
+				<form  id="registe" class="information " method="" action="">
 					<div class="form-group">
 						<label><font>*</font>账&nbsp;号</label>
 						<input style="padding-left: 45px;" type="text" name="username" placeholder="请输入账号" value="">
 					</div>
-					<!-- <div class="error">账号不能为空</div> -->
-				</div>
-				
-				<div class="information infor3">
 					<div class="form-group">
 						<label><font>*</font>密&nbsp;码</label>
 						<input style="padding-left: 45px;"  type="password" name="username" placeholder="请输入密码" value="">
 					</div>
-					<!-- <div class="error">密码不能为空</div> -->
-				</div>
-				
-			</div>
-		<div class="registe"><a href="">登&nbsp;&nbsp;&nbsp;&nbsp;录</a></div>
+					<input class="login" type="submit" name="" value="登&nbsp;&nbsp;&nbsp;&nbsp;录">	
+			</form>
+		
 		</div>		
 	</div>
 </div>
