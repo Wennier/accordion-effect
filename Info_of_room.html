@@ -112,6 +112,7 @@
 		margin-left: -200px;
 		z-index: 1;
 		background: #fff;
+		display: none;
 		
 	}
 	#room_in h2{
@@ -132,8 +133,13 @@
 		top: 0px;
 		right: 0px;
 		font-size: 20px;
+		font-weight: bold;
 		color: #000;
 		cursor:pointer;
+
+	}
+	#room_in p:hover{
+		background: #fff;
 	}
 	#room_in .info{
 		border:1px solid #9C9C9C;
@@ -145,24 +151,55 @@
 		border:none; 
 		background: rgba(0,0,0,0);
 		line-height: 40px;
-		/*padding: 10px 0px 10px 5px;*/
 		font-size: 16px;
 		color: gray;
 		font-weight: normal;
 		outline: none; 
-		/*border:1px solid red;*/
 	}
 	#room_in .info label{
 		line-height: 40px;
 		margin-left: 10px;
 		color: gray;
 		font-size: 20px;
-		/*border:1px solid black;*/
 	}
 	#room_in .info label font{
 		color:#FD8321;margin-right: 10px;
 	}
+	#room_in .btn{
+		/*width: 340px;
+		height: 50px;*/
+		margin-left: 20px;
+	}
+	#room_in .btn .confirm{
+		width: 360px;
+		line-height: 50px;
+		font-size: 20px;
+		background: gray;
+		border:none;
+		color: #fff;
+		outline: none;
+		
+	}
+	#room_in .btn .confirm:hover{
+		background: #585858;
+	}
+
 	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var room_in = document.getElementById('room_in');
+			var close = room_in.getElementsByTagName('p')[0];
+			var logo = document.getElementById('logo');
+			var logo_in =document.getElementsByClassName('in')[0];
+
+			logo_in.onclick = function(){
+				room_in.style.display = 'block';
+			}
+			close.onclick = function(){
+				room_in.style.display = 'none';
+			}
+		};
+	</script>
 </head>
 <body>
 <div id="room_in">
@@ -186,8 +223,10 @@
 				<label>离店日期</label>
 				<input type="text" name="username" placeholder="请输入离店日期" value="">
 			</div>
-			<input class="confirm" type="submit" name="" value="确定">
-			<input class="cancle" type="button" name="" value="取消">
+			<div class="btn">
+				<input class="confirm" type="submit" name="" value="确定">
+			</div>
+			
 		</form>
 	</div>
 </div>
