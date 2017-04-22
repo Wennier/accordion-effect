@@ -26,10 +26,9 @@
 		color: #5C3915;
 		font-weight: 700;
 		position: absolute;
-		top: 20px;right: 300px;
+		top: 24px;right: 380px;
 	}
-	#logo .in a,#logo .out a{
-		text-decoration: none;
+	#logo .in ,#logo .out {
 		width: 60px;line-height: 30px;
 		text-align: center;
 		font-size: 18px;
@@ -37,15 +36,15 @@
 		color: #5C3915;
 		border:2px solid #5C3915;
 		border-radius: 10px;
-		
+		cursor: pointer;
 	}
-	#logo .in a{
+	#logo .in {
 		position: absolute;
-		top: 10px;right: 160px;
+		top: 0px;right: 160px;
 	}
-	#logo .out a{
+	#logo .out {
 		position: absolute;
-		top: 10px;right: 80px;
+		top: 0px;right: 80px;
 	}
 /*内容包裹区*/	
 	#warpper{
@@ -112,16 +111,17 @@
 		left: 50%;		
 		margin-left: -200px;
 		background: #fff;
-		
+		display: none;
 	}
 	#room_in h2{
 		width: 400px;
-		line-height: 50px;
+		line-height: 60px;
 		background: #B1B1B1;
 		font-weight: 400;
 		font-size: 24px;
 		color: #fff;
 		text-align:  center;
+		letter-spacing: 3px;
 	}
 	#room_in p{
 		width: 25px;
@@ -201,10 +201,8 @@
 			var close = room_in.getElementsByTagName('p')[0];
 			var logo = document.getElementById('logo');
 			var logo_in =logo.getElementsByClassName('in')[0];
-			var logo_in_a = logo_in.getElementsByTagName('a')[0];
 
-
-			logo_in_a.onclick = function(){
+			logo_in.onclick = function(){
 				show();
 			};
 
@@ -256,14 +254,44 @@
 		</div>
 	</div>
 	<!--离店处理区-->
-	<div id="room_out"></div>
+	<div id="room_out">
+		<h2>客户退房</h2>
+		<p>×</p>
+		<div>
+			<form class="from_group" method="" action="">
+			<div class="info">
+					<label>房间编号</label>
+					<input type="text" name="username" placeholder="请输入房间编号" value="">
+				</div>
+				<div class="info">
+					<label>姓&nbsp;名&nbsp;</label>
+					<input type="text" name="username" placeholder="请输入姓名" value="">
+				</div>
+				<div class="info">
+					<label>证件号&nbsp;</label>
+					<input type="text" name="username" placeholder="请输入证件号" value="">
+				</div>
+				<div class="info">
+					<label>入住日期</label>
+					<input type="text" name="username" placeholder="请输入入住日期" value="">
+				</div>
+				<div class="info">
+					<label>离店日期</label>
+					<input type="text" name="username" placeholder="请输入离店日期" value="">
+				</div>
+				<div class="btn">
+					<input class="confirm" type="submit" name="" value="确定">
+				</div>
+			</form>
+		</div>
+	</div>
 
 	<!-- logo标题栏 -->
 	<div id="logo">
 		<div><span><img src="img/logo-1.png"></span></div>
 		<p>当前登录:</p>
-		<div class="in"><a href="">入住</a></div>
-		<div class="out"><a href="">离店</a></div>
+		<div class="in">入住</div>
+		<div class="out">离店</div>
 	</div>
 	<!--信息表格区-->
 	<div id="warpper">
@@ -289,7 +317,7 @@
 							<td>大床</td>
 							<td>空</td>
 							<td>138</td>
-							<td>张文慧</td>
+							<td>jack</td>
 							<td>142625166452362031</td>
 							<td>2017.02.03</td>
 							<td>2013.02.05</td>
