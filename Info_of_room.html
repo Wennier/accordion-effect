@@ -104,15 +104,14 @@
 	}
 /*消息弹框区*/
 	#room_in{
+		z-index: 1;
 		position: absolute;
 		width: 400px;
 		height: 600px;
 		top: 200px;
-		left: 50%;
+		left: 50%;		
 		margin-left: -200px;
-		z-index: 1;
 		background: #fff;
-		/*display: none;*/
 		
 	}
 	#room_in h2{
@@ -128,7 +127,6 @@
 		width: 25px;
 		line-height: 25px;
 		text-align: center;
-		/*background: #fff;*/
 		position: absolute;
 		top: 0px;
 		right: 0px;
@@ -155,6 +153,7 @@
 		color: gray;
 		font-weight: normal;
 		outline: none; 
+		margin-left: 20px;
 	}
 	#room_in .info label{
 		line-height: 40px;
@@ -166,8 +165,6 @@
 		color:#FD8321;margin-right: 10px;
 	}
 	#room_in .btn{
-		/*width: 340px;
-		height: 50px;*/
 		margin-left: 20px;
 	}
 	#room_in .btn .confirm{
@@ -184,167 +181,196 @@
 		background: #585858;
 	}
 
+	/*离店*/
+	#parent #room_out{
+		z-index: 2222;
+		position: absolute;
+		width: 400px;
+		height: 600px;
+		top: 200px;
+		left: 60%;
+		margin-left: -200px;
+		background: red;
+		display: none;
+	}
+
 	</style>
 	<script type="text/javascript">
 		window.onload = function(){
 			var room_in = document.getElementById('room_in');
 			var close = room_in.getElementsByTagName('p')[0];
 			var logo = document.getElementById('logo');
-			var logo_in =document.getElementsByClassName('in')[0];
+			var logo_in =logo.getElementsByClassName('in')[0];
+			var logo_in_a = logo_in.getElementsByTagName('a')[0];
 
-			logo_in.onclick = function(){
-				room_in.style.display = 'block';
-			}
+
+			logo_in_a.onclick = function(){
+				show();
+			};
+
+
 			close.onclick = function(){
+				
 				room_in.style.display = 'none';
+			}
+
+			function show(){
+				var room_in = document.getElementById('room_in');
+				room_in.style.display = 'block';
 			}
 		};
 	</script>
 </head>
 <body>
-<div id="room_in">
-	<h2>添加客户信息</h2>
-	<p>×</p>
-	<div>
-		<form class="from_group" method="" action="">
+<div id="parent">
+	<!--入住信息区-->
+	<div id="room_in">
+		<h2>添加客户信息</h2>
+		<p>×</p>
+		<div>
+			<form class="from_group" method="" action="">
 			<div class="info">
-				<label>姓&nbsp;名</label>
-				<input style="margin-left: 20px;" type="text" name="username" placeholder="请输入姓名" value="">
-			</div>
-			<div class="info">
-				<label>证件号</label>
-				<input style="margin-left: 20px;" type="text" name="username" placeholder="请输入证件号" value="">
-			</div>
-			<div class="info">
-				<label>入住日期</label>
-				<input type="text" name="username" placeholder="请输入入住日期" value="">
-			</div>
-			<div class="info">
-				<label>离店日期</label>
-				<input type="text" name="username" placeholder="请输入离店日期" value="">
-			</div>
-			<div class="btn">
-				<input class="confirm" type="submit" name="" value="确定">
-			</div>
-			
-		</form>
+					<label>房间编号</label>
+					<input type="text" name="username" placeholder="请输入房间编号" value="">
+				</div>
+				<div class="info">
+					<label>姓&nbsp;名&nbsp;</label>
+					<input type="text" name="username" placeholder="请输入姓名" value="">
+				</div>
+				<div class="info">
+					<label>证件号&nbsp;</label>
+					<input type="text" name="username" placeholder="请输入证件号" value="">
+				</div>
+				<div class="info">
+					<label>入住日期</label>
+					<input type="text" name="username" placeholder="请输入入住日期" value="">
+				</div>
+				<div class="info">
+					<label>离店日期</label>
+					<input type="text" name="username" placeholder="请输入离店日期" value="">
+				</div>
+				<div class="btn">
+					<input class="confirm" type="submit" name="" value="确定">
+				</div>
+			</form>
+		</div>
+	</div>
+	<!--离店处理区-->
+	<div id="room_out"></div>
+
+	<!-- logo标题栏 -->
+	<div id="logo">
+		<div><span><img src="img/logo-1.png"></span></div>
+		<p>当前登录:</p>
+		<div class="in"><a href="">入住</a></div>
+		<div class="out"><a href="">离店</a></div>
+	</div>
+	<!--信息表格区-->
+	<div id="warpper">
+		<div><a href=""></a></div>
+		<div class="bg"></div>
+		<div class="box">
+			<div class="box_content">
+				<h2>酒店房间信息管理</h2>
+				<div id="info">
+					<table border=1>
+						<tr>
+							<th>房间号</th>
+							<th>房间类型</th>
+							<th>房间状态</th>
+							<th>价格</th>
+							<th>入住人姓名</th>
+							<th>入住人证件号</th>
+							<th>入住日期</th>
+							<th>离店日期</th>
+						</tr>
+						<tr>
+							<td>111</td>
+							<td>大床</td>
+							<td>空</td>
+							<td>138</td>
+							<td>张文慧</td>
+							<td>142625166452362031</td>
+							<td>2017.02.03</td>
+							<td>2013.02.05</td>
+						</tr>
+						<tr>
+							<td>112</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>113</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>114</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>115</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>116</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>117</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>118</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+		
+					</table>
+				</div>
+			</div>		
+		</div>
 	</div>
 </div>
 
-
-<!-- logo标题栏 -->
-<div id="logo">
-	<div><span><img src="img/logo-1.png"></span></div>
-	<p>当前登录:</p>
-	<div class="in"><a href="">入住</a></div>
-	<div class="out"><a href="">离店</a></div>
-</div>
-<!--信息表格区-->
-<div id="warpper">
-	<div><a href=""></a></div>
-	<div class="bg"></div>
-	<div class="box">
-		<div class="box_content">
-			<h2>酒店房间信息管理</h2>
-			<div id="info">
-				<table border=1>
-					<tr>
-						<th>房间号</th>
-						<th>房间类型</th>
-						<th>房间状态</th>
-						<th>价格</th>
-						<th>入住人姓名</th>
-						<th>入住人证件号</th>
-						<th>入住日期</th>
-						<th>离店日期</th>
-					</tr>
-					<tr>
-						<td>111</td>
-						<td>大床</td>
-						<td>空</td>
-						<td>138</td>
-						<td>张文慧</td>
-						<td>142625166452362031</td>
-						<td>2017.02.03</td>
-						<td>2013.02.05</td>
-					</tr>
-					<tr>
-						<td>112</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>113</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>114</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>115</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>116</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>117</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>118</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					
-				
-					
-				</table>
-			</div>
-		</div>		
-	</div>
-</div>
 </body>
 </html>
