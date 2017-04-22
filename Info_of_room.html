@@ -102,7 +102,7 @@
 		text-align: center;
 	}
 /*消息弹框区*/
-	#room_in{
+	#room_in,#room_out{
 		z-index: 1;
 		position: absolute;
 		width: 400px;
@@ -113,7 +113,7 @@
 		background: #fff;
 		display: none;
 	}
-	#room_in h2{
+	#room_in h2,#room_out h2{
 		width: 400px;
 		line-height: 60px;
 		background: #B1B1B1;
@@ -123,7 +123,7 @@
 		text-align:  center;
 		letter-spacing: 3px;
 	}
-	#room_in p{
+	#room_in p,#room_out p{
 		width: 25px;
 		line-height: 25px;
 		text-align: center;
@@ -139,13 +139,16 @@
 	#room_in p:hover{
 		background: #fff;
 	}
-	#room_in .info{
+	#room_out p:hover{
+		background: #fff;
+	}
+	#room_in .info,#room_out .info{
 		border:1px solid #9C9C9C;
 		width: 340px;
 		padding: 1px 10px;
 		margin:30px auto; 
 	}
-	#room_in .info input{
+	#room_in .info input,#room_out .info input{
 		border:none; 
 		background: rgba(0,0,0,0);
 		line-height: 40px;
@@ -155,19 +158,19 @@
 		outline: none; 
 		margin-left: 20px;
 	}
-	#room_in .info label{
+	#room_in .info label,#room_out .info label{
 		line-height: 40px;
 		margin-left: 10px;
 		color: gray;
 		font-size: 20px;
 	}
-	#room_in .info label font{
+	#room_in .info label font,#room_out .info label font{
 		color:#FD8321;margin-right: 10px;
 	}
-	#room_in .btn{
+	#room_in .btn,#room_out .btn{
 		margin-left: 20px;
 	}
-	#room_in .btn .confirm{
+	#room_in .btn .confirm,#room_out .btn .confirm{
 		width: 360px;
 		line-height: 50px;
 		font-size: 20px;
@@ -180,41 +183,35 @@
 	#room_in .btn .confirm:hover{
 		background: #585858;
 	}
-
-	/*离店*/
-	#parent #room_out{
-		z-index: 2222;
-		position: absolute;
-		width: 400px;
-		height: 600px;
-		top: 200px;
-		left: 60%;
-		margin-left: -200px;
-		background: red;
-		display: none;
+	#room_out .btn .confirm:hover{
+		background: #585858;
 	}
 
 	</style>
 	<script type="text/javascript">
 		window.onload = function(){
 			var room_in = document.getElementById('room_in');
+			var room_out = document.getElementById('room_out');
 			var close = room_in.getElementsByTagName('p')[0];
+			var close_1 = room_out.getElementsByTagName('p')[0];
 			var logo = document.getElementById('logo');
 			var logo_in =logo.getElementsByClassName('in')[0];
+			var logo_out =logo.getElementsByClassName('out')[0];
+
 
 			logo_in.onclick = function(){
-				show();
+				room_in.style.display = 'block';
+			};
+			logo_out.onclick = function(){
+				room_out.style.display = 'block';
 			};
 
-
 			close.onclick = function(){
-				
 				room_in.style.display = 'none';
 			}
+			close_1.onclick = function(){
+				room_out.style.display = 'none';
 
-			function show(){
-				var room_in = document.getElementById('room_in');
-				room_in.style.display = 'block';
 			}
 		};
 	</script>
@@ -266,10 +263,6 @@
 				<div class="info">
 					<label>姓&nbsp;名&nbsp;</label>
 					<input type="text" name="username" placeholder="请输入姓名" value="">
-				</div>
-				<div class="info">
-					<label>证件号&nbsp;</label>
-					<input type="text" name="username" placeholder="请输入证件号" value="">
 				</div>
 				<div class="info">
 					<label>入住日期</label>
